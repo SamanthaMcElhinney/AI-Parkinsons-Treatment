@@ -2,33 +2,55 @@ import styles from "./styles.module.css";
 import speaking from "./assets/speaking.png";
 import { useState } from "react";
 
-function App() {
-  const [wordDescription, setWordDescription] = useState("")
-  const onSubmit = (e) => {
+export default function App() {
+  const [prompt, setPrompt] = useState(""); 
+  const [response, setResponse] = useState("");
+
+  const onSubmit = async (e) => {
     e.preventDefault();
-    console.log("form submitted:", wordDescription)
-    return
-  }
-  return (
+    const reply = await generateQuery();
+    setResponse(reply);
+  };
+
+  const generateQuery = async () => {
+    try {
+      const response = await fetch("http://localhost:3002/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt: prompt }),
+      });
+
+      if (!response.ok) {
+        return `Error: ${response.status}`;
+      }
+
+      const data = await response.json();
+      return data.reply.trim();
+    } catch (error) {
+      console.error(error);
+      return "An error occurred";
+    }
+  };
+
+   return (
     <main className={styles.main}>
-      <img src={speaking} alt="" className="styles.icon" />
-      <h3>Generate search with AI</h3>
+      <img src={speaking} className={styles.icon} alt="brain icon" />
+      <h3 className={styles.centerText}>Parkinson's Daily Practice</h3>
       <form onSubmit={onSubmit}>
         <input
           type="text"
           name="query-description"
-          placeholder="describe word"
-          onChange={(e)=> {
-            setWordDescription(e.target.value)
-          }}
+          placeholder="Describe your practice story of interest"
+          value={prompt} 
+          onChange={(e) => setPrompt(e.target.value)} 
         />
-        <input 
-          type="submit"
-          value="describe your word"
-          />
+        <input type="submit" value="Generate Story" />
       </form>
+      <div className={styles.container}>
+        <pre className={styles.centerText}>{response}</pre>
+      </div>
     </main>
   );
 }
-
-export default App;
