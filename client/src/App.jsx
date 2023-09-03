@@ -1,6 +1,7 @@
 import styles from "./styles.module.css";
 import speaking from "./assets/speaking.png";
 import { useState } from "react";
+import Countdown from "./CountDown";
 
 export default function App() {
   const [prompt, setPrompt] = useState(""); 
@@ -38,6 +39,7 @@ export default function App() {
     <main className={styles.main}>
       <img src={speaking} className={styles.icon} alt="brain icon" />
       <h3 className={styles.centerText}>Parkinson's Daily Practice</h3>
+      <Countdown seconds={10}/>
       <form onSubmit={onSubmit}>
         <input
           type="text"

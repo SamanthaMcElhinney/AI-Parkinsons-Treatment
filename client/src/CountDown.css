@@ -1,0 +1,19 @@
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle-animation {
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
