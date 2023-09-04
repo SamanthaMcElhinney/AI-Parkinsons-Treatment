@@ -42,7 +42,19 @@ export default function Countdown() {
 
   return (
     <div className="center-container">
-      <h2>Say A Countdown: {countdown}</h2>
+       <div className="directions">
+        <h3>Vocal Exercises like "/a/":</h3>
+        <p>Vocal exercises aim to strengthen the vocal cords, improve voice projection, and enhance articulation. One basic exercise is the sustained "/a/" phonation:</p>
+        <ul>
+          <li><strong>Posture:</strong> Sit or stand up straight.</li>
+          <li><strong>Breath:</strong> Take a deep breath in.</li>
+          <li><strong>Phonation:</strong> As you exhale, make a long, steady "/a/" sound.</li>
+          <li><strong>Duration:</strong> Try to hold the sound as steady as possible for as long as you can.</li>
+          <li><strong>Volume:</strong> Aim for a moderate volume, not too soft but not shouting.</li>
+        </ul>
+        <p><strong>Goal:</strong> To increase the duration you can hold the sound, improve the steadiness of the sound, and increase volume over time. This exercise helps to improve vocal cord closure and can enhance voice quality.</p>
+      </div>
+      <h2>Say Ah Countdown: {countdown}</h2>
       <button onClick={toggleTimer}>
         {isRunning ? "Pause" : countdown === 0 ? "Restart" : "Start"}
       </button>
