@@ -65,7 +65,7 @@ export default function App() {
           <input
             type="text"
             name="query-description"
-            placeholder="Describe your practice story of interest"
+            placeholder="Choose topic"
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
           />

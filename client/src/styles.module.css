@@ -26,9 +26,7 @@
   align-items: center;
   padding-top: 60px;
 }
-.main .icon {
-  width: 34px;
-}
+
 .main h3 {
   font-size: 32px;
   line-height: 40px;
@@ -47,6 +45,7 @@
   border-radius: 4px;
   margin-bottom: 24px;
   outline-color: #10a37f;
+  width: 275px;
 }
 .main ::placeholder {
   color: #8e8ea0;
@@ -54,12 +53,12 @@
 }
 .main input[type="submit"] {
   padding: 12px 0;
-  color: #fff;
-  background-color: #10a37f;
+  color: #f4e8e2;
+  background-color: black;
   border: none;
   border-radius: 4px;
-  text-align: center;
   cursor: pointer;
+  width: 300px;
 }
 .main .result {
   margin-top: 40px;
@@ -71,7 +70,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 2px solid #ccc;
   border-radius: 10px;
   margin: 20px;
   padding: 20px;
@@ -79,54 +77,6 @@
 
 .centerText {
   text-align: center;
-}
-
-body {
-  background-color: #efe9e4;
-}
-
-
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
 
 .dropdown {
@@ -138,9 +88,6 @@ body {
   border-radius: 4px;
 }
 
-.container-phrases{
-  
-}
 
 body {
   background-color: #c9cfbd;

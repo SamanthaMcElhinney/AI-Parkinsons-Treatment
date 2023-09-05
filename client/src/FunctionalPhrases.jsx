@@ -43,7 +43,6 @@ return (
     <div className={styles.directions}>
       <div className={styles["container-phrases"]}>
         <h3>Functional Phrases Exercises:</h3>
-        <img src={convo} className={styles.icon} alt="quote icon" />
       </div>
       <p>
         Functional phrases are real-world sentences that help you practice
@@ -72,22 +71,37 @@ return (
         everyday conversations.
       </p>
     </div>
-    <form onSubmit={onSubmit}>
-      <input
-        type="text"
-        name="topic-description"
-        placeholder="Choose your topic"
-        value={topic}
-        onChange={(e) => setTopic(e.target.value)}
+    <div  style={{display:"flex",
+    flexDirection: "row",
+    justifyContent: "center",
+}}>
+      {" "}
+      <img
+        src={convo}
+        alt="quote icon"
+        style={{
+          width: "50px",
+          height: "50px",
+          marginBottom: "20px",
+        }}
       />
-      <input type="submit" value="Generate Phrases" />
-    </form>
-    <div className={styles.container}>
-      <ul className={styles.centerText}>
-        {phrases.map((phrase, index) => (
-          <li key={index}>{phrase}</li>
-        ))}
-      </ul>
+      <form onSubmit={onSubmit}>
+        <input
+          type="text"
+          name="topic-description"
+          placeholder="Choose your topic"
+          value={topic}
+          onChange={(e) => setTopic(e.target.value)}
+        />
+        <input type="submit" value="Generate Phrases" />
+      </form>
+      <div className={styles.container}>
+        <ul className={styles.centerText}>
+          {phrases.map((phrase, index) => (
+            <li key={index}>{phrase}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   </main>
-)}
+);}
