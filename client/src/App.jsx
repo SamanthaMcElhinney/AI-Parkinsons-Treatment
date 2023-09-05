@@ -1,20 +1,22 @@
-import styles from "./styles.module.css";
-import speaking from "./assets/speaking.png";
-import { useState } from "react";
+import React, { useState } from "react";
 import Countdown from "./CountDown";
 import FunctionalPhrases from "./FunctionalPhrases";
-import Story from "./Story"
+import Story from "./Story";
 import Header from "./Header";
+import styles from "./styles.module.css";
+import "./Header.css";
+import intro from './assets/intro.png'
 
 export default function App() {
-  const [selectedExercise, setSelectedExercise] = useState(""); 
+  const [selectedExercise, setSelectedExercise] = useState("");
+
   let exerciseComponent;
   switch (selectedExercise) {
     case "vocal":
-      exerciseComponent = <Countdown/>
+      exerciseComponent = <Countdown />;
       break;
     case "functional":
-      exerciseComponent = <FunctionalPhrases/>;
+      exerciseComponent = <FunctionalPhrases />;
       break;
     case "reading":
       exerciseComponent = <Story />;
@@ -25,24 +27,20 @@ export default function App() {
 
   return (
     <div>
-<Header/>
-<div/>
-    <main className={styles.main}>
-      <h3 className={styles.centerText}>Parkinson's Daily Practice</h3>
-      <select
-        onChange={(e) => setSelectedExercise(e.target.value)}
-        value={selectedExercise}
-      >
-        <option value="" disabled>
-          Select an exercise type
-        </option>
-        <option value="vocal">Vocal Exercises</option>
-        <option value="functional">Functional Phrases</option>
-        <option value="reading">Reading Paragraphs</option>
-      </select>
-      {exerciseComponent}
-    </main>
+      <Header
+        selectedExercise={selectedExercise}
+        setSelectedExercise={setSelectedExercise}
+      />
+      <main className={styles.main}>{exerciseComponent}</main>
+      {selectedExercise === "" && (
+        <div className="intro-container">
+          <img
+            className="intro-logo"
+            src={intro}
+            alt="intro to parkinsons exercises with image of girl with microphone"
+          ></img>
+        </div>
+      )}
     </div>
   );
-
 }

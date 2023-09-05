@@ -1,4 +1,4 @@
-import styles from './styles.module.css';
+import styles from './FunctionalPhrases.css'; 
 import convo from './assets/convo.png';
 import { useState } from 'react';
 
@@ -40,10 +40,11 @@ export default function FunctionalPhrases() {
 
 return (
   <main className={styles.main}>
-    <img src={convo} className={styles.icon} alt="quote icon" />
-    <h3 className={styles.centerText}>Functional Phrases Generator</h3>
     <div className={styles.directions}>
-      <h3>Functional Phrases Exercises:</h3>
+      <div className={styles["container-phrases"]}>
+        <h3>Functional Phrases Exercises:</h3>
+        <img src={convo} className={styles.icon} alt="quote icon" />
+      </div>
       <p>
         Functional phrases are real-world sentences that help you practice
         natural dialogue. Here's how to get the most out of these exercises:
@@ -54,8 +55,8 @@ return (
           about in your daily life.
         </li>
         <li>
-          <strong>Speech:</strong> Try to say the generated phrases as
-          naturally as possible.
+          <strong>Speech:</strong> Try to say the generated phrases as naturally
+          as possible.
         </li>
         <li>
           <strong>Repetition:</strong> The more you practice, the more
@@ -89,11 +90,4 @@ return (
       </ul>
     </div>
   </main>
-);
-
-
-
-
-
-
-}
+)}

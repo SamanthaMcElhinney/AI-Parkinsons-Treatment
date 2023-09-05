@@ -60,10 +60,23 @@
 }
 
 .header-bottom__phone {
+
   margin-right: 65px;
 }
 .icon {
   padding-left:10px;
   width: 75px;  
   height: 75px;
+}
+
+.dropdown {
+  margin-left:5px;
+  background-color: black;
+  color: #dedede;
+  border: 1px solid #dedede; 
+}
+
+.dropdown option {
+  background-color: black;
+  color: #dedede;
 }
