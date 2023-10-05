@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import "./Countdown.css";
+import "./CountDown.css";
 
 export default function Countdown() {
   const [countdown, setCountdown] = useState(10);
