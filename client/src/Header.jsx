@@ -14,7 +14,7 @@ function Header({ selectedExercise, setSelectedExercise }) {
           >
             Parkinson's
           </a>
-          <img src={speaking} className="icon" alt="speaking icon" />
+          <img src={speaking} className="head" alt="speaking icon" />
         </section>
         <section className="header-top__navbar">
           <section className="header-top__navigation"></section>

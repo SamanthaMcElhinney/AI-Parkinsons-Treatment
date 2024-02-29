@@ -6,6 +6,7 @@ import Header from "./Header";
 import styles from "./styles.module.css";
 import "./Header.css";
 import intro from './assets/intro.png'
+import Landing from "./Landing"
 
 export default function App() {
   const [selectedExercise, setSelectedExercise] = useState("");
@@ -31,15 +32,10 @@ export default function App() {
         selectedExercise={selectedExercise}
         setSelectedExercise={setSelectedExercise}
       />
-      <main className={styles.main}>{exerciseComponent}</main>
-      {selectedExercise === "" && (
-        <div className="intro-container">
-          <img
-            className="intro-logo"
-            src={intro}
-            alt="intro to parkinsons exercises with image of girl with microphone"
-          ></img>
-        </div>
+      {selectedExercise ? (
+        <main className={styles.main}>{exerciseComponent}</main>
+      ) : (
+        <Landing />
       )}
     </div>
   );

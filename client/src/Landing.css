@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
+
+.landing-container {
+    flex: 1; /* Takes up the remaining space */
+    display: flex;
+    flex-direction: column;
+    padding:1rem;
+      font-family: 'Lato', sans-serif;
+}
+
+.top-content {
+    width:100%;
+    display:flex;
+    /* flex:1; */
+    align-items: center;
+}
+
+.title {
+    font-size: 4rem;
+}
+
+.landing-info{
+    font-weight:200;
+    font-size: larger;
+    padding-left:1rem;
+    padding-right:1rem;
+}
+
+.content-left, .content-right {
+    flex: 1; /* Each takes equal space */
+    display: flex;
+    justify-content: center; /* Adjust this based on your content alignment needs */
+    align-items: center; /* This centers the content vertically */
+}
+
+.content-left{
+    flex-direction: column;
+}
+/* 
+.bottom-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+} */
+
+.bottom-container {
+    display:flex;
+}
+
+.icon-container{
+    margin-top:5rem;
+    display:flex;
+    flex-direction: column;
+    align-content: space-around;
+    padding:1rem;
+}
+
+.icon {
+    height:100px;
+    width:120px;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.title-color{
+    color:#363042;
+}
+
+.doctor {
+    height:70vh;
+}
+
+.icon-label {
+    font-family: 'PT Serif', serif;
+    font-size: 1rem;
+    line-height: 1.2; 
+    text-align: center; 
+    margin-top: 0.5rem; 
+    color: #363042;
+    text-shadow: 5px 5px 3px rgba(255, 255, 255, 0.7);
+}
