@@ -1,94 +1,72 @@
-import styles from "../../styles.module.css";
-import convo from "../../assets/convo.png";
 import { useState } from "react";
+import styles from "../../styles.module.css";
+
+const API_ENDPOINT = "http://localhost:3002/v1/chat/completions";
 
 export default function FunctionalPhrases() {
   const [topic, setTopic] = useState("");
   const [phrases, setPhrases] = useState([]);
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    const fetchedPhrases = await generatePhrases();
-    setPhrases(fetchedPhrases);
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const fetchedPhrases = await fetchPhrases(topic);
+      setPhrases(fetchedPhrases);
+    } catch (error) {
+      console.error("Fetching phrases failed:", error);
+      setPhrases(["Error occurred while fetching phrases."]);
+    }
   };
 
-  const generatePhrases = async () => {
-    console.log("Generating phrases for topic:", topic);
-    try {
-      const response = await fetch(
-        "http://localhost:3002/v1/chat/completions",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ topic: topic }),
-        }
-      );
+  const fetchPhrases = async (topic) => {
+    const response = await fetch(API_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ topic }),
+    });
 
-      console.log("Received response:", response);
-
-      if (!response.ok) {
-        return [`Error: ${response.status}`];
-      }
-
-      const data = await response.json();
-      return data.phrases || [];
-    } catch (error) {
-      console.error(error);
-      return ["An error occurred"];
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
+
+    const data = await response.json();
+    return data.phrases || [];
   };
 
   return (
     <main className={styles.main}>
-      <div>
-          <h3>Functional Phrases Exercises:</h3>
-        <p>
-          Functional phrases are real-world sentences that help you practice
-          natural dialogue. Here's how to get the most out of these exercises:
-        </p>
-        <ul>
-          <li>
-            <strong>Topic:</strong> Choose a topic that you would normally talk
-            about in your daily life.
-          </li>
-          <li>
-            <strong>Speech:</strong> Try to say the generated phrases as
-            naturally as possible.
-          </li>
-          <li>
-            <strong>Repetition:</strong> The more you practice, the more
-            comfortable you will become.
-          </li>
-          <li>
-            <strong>Application:</strong> Try using these phrases in your daily
-            conversations.
-          </li>
-        </ul>
-        <p>
-          <strong>Goal:</strong> To improve your functional language skills for
-          everyday conversations.
-        </p>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-        }}
-      >
-        {" "}
-        <img
-          src={convo}
-          alt="quote icon"
-          style={{
-            width: "50px",
-            height: "50px",
-            marginRight:"20px",
-            marginBottom: "20px",
-          }}
-        />
+      <h1>Functional Phrases Exercises:</h1>
+      <div className={styles.container}>
+        <div>
+          <p>
+            Functional phrases are real-world sentences that help you practice
+            natural dialogue. Here's how to get the most out of these exercises:
+          </p>
+          <ul>
+            <li>
+              <strong>Topic:</strong> Choose a topic that you would normally
+              talk about in your daily life.
+            </li>
+            <li>
+              <strong>Speech:</strong> Try to say the generated phrases as
+              naturally as possible.
+            </li>
+            <li>
+              <strong>Repetition:</strong> The more you practice, the more
+              comfortable you will become.
+            </li>
+            <li>
+              <strong>Application:</strong> Try using these phrases in your
+              daily conversations.
+            </li>
+          </ul>
+          <p>
+            <strong>Goal:</strong> To improve your functional language skills
+            for everyday conversations.
+          </p>
+        </div>
         <form onSubmit={onSubmit}>
           <input
             type="text"
@@ -96,16 +74,21 @@ export default function FunctionalPhrases() {
             placeholder="Choose your topic"
             value={topic}
             onChange={(e) => setTopic(e.target.value)}
+            className={styles.input}
           />
-          <input type="submit" value="Generate Phrases" />
+          <input
+            type="submit"
+            value="Generate Phrases"
+            className={styles.submitButton}
+          />
         </form>
-        <div className={styles.container}>
-          <ul className={styles.centerText}>
-            {phrases.map((phrase, index) => (
-              <li key={index}>{phrase}</li>
-            ))}
-          </ul>
-        </div>
+      </div>
+      <div className={styles.container}>
+        <ul className={`${styles.centerText} ${styles.noBullets}`}>
+          {phrases.map((phrase, index) => (
+            <li key={index}>{phrase}</li>
+          ))}
+        </ul>
       </div>
     </main>
   );

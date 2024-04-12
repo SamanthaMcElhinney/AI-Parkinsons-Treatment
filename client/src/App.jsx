@@ -1,41 +1,39 @@
 import React, { useState } from "react";
-import Countdown from "./Components/Countdown/CountDown"
+import { Route, Routes } from "react-router-dom";
+import Countdown from "./Components/Countdown/Countdown";
 import FunctionalPhrases from "./Components/FunctionalPhrases/FunctionalPhrases";
 import Story from "./Components/Story/Story";
-import Header from "./Components/Header/Header"
+import Header from "./Components/Header/Header";
+import Landing from "./Components/Landing/Landing";
 import styles from "./styles.module.css";
-import intro from './assets/intro.png'
-import Landing from "./Components/Landing/Landing"
 
-export default function App() {
+const App = () => {
   const [selectedExercise, setSelectedExercise] = useState("");
 
-  let exerciseComponent;
-  switch (selectedExercise) {
-    case "vocal":
-      exerciseComponent = <Countdown />;
-      break;
-    case "functional":
-      exerciseComponent = <FunctionalPhrases />;
-      break;
-    case "reading":
-      exerciseComponent = <Story />;
-      break;
-    default:
-      exerciseComponent = null;
-  }
+  const getExerciseComponent = () => {
+    switch (selectedExercise) {
+      case "vocal":
+        return <Countdown />;
+      case "functional":
+        return <FunctionalPhrases />;
+      case "reading":
+        return <Story />;
+      default:
+        return null;
+    }
+  };
 
   return (
-    <div>
+    <div className={styles.appContainer}>
       <Header
         selectedExercise={selectedExercise}
         setSelectedExercise={setSelectedExercise}
       />
-      {selectedExercise ? (
-        <main className={styles.main}>{exerciseComponent}</main>
-      ) : (
-        <Landing />
-      )}
+      <main className={styles.centeredMain}>
+        {selectedExercise ? getExerciseComponent() : <Landing />}
+      </main>
     </div>
   );
-}
+};
+
+export default App;

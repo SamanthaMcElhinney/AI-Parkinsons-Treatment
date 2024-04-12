@@ -1,31 +1,36 @@
+import { Link, useNavigate } from "react-router-dom";
 import React from "react";
-import speaking from "../../assets/speaking.png"
+import speaking from "../../assets/speaking.png";
 import "./Header.css";
 
 function Header({ selectedExercise, setSelectedExercise }) {
+  const navigate = useNavigate();
+
+  const handleExerciseChange = (e) => {
+    setSelectedExercise(e.target.value);
+    navigate(`/${e.target.value}`);
+  };
+
   return (
     <section className="header">
       <section className="header-top">
         <section className="header-top__logo">
-          <a
-            href="/"
+          <Link
+            to="/"
             className="header-logo"
             onClick={() => setSelectedExercise("")}
           >
             Parkinson's
-          </a>
+          </Link>
           <img src={speaking} className="head" alt="speaking icon" />
-        </section>
-        <section className="header-top__navbar">
-          <section className="header-top__navigation"></section>
-          <hr className="header-top__seperator" />
         </section>
       </section>
       <section className="header-bottom">
         <section className="header-bottom__phone">
-          Daily Exercises:
+          <label htmlFor="exercise-dropdown">Daily Exercises:</label>
           <select
-            onChange={(e) => setSelectedExercise(e.target.value)}
+            id="exercise-dropdown"
+            onChange={handleExerciseChange}
             value={selectedExercise}
             className="dropdown"
           >
