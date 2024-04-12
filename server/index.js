@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import openai from "./api.js";
-import bcrypt from "bcrypt"; // Assuming you still want to hash something for demonstration.
 
 const app = express();
 app.use(express.json());
@@ -14,7 +13,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/v1/completions", async (req, res) => {
-    console.log("Request received for /v1/completions");
+  console.log("Request received for /v1/completions");
   const { topic } = req.body;
   if (!topic || typeof topic !== "string") {
     return res.status(400).json({ error: "Invalid input" });
@@ -67,8 +66,6 @@ app.post("/v1/chat/completions", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
-
-// Removed the /upload-text endpoint as it seemed to interact with AWS S3, not directly related to PostgreSQL but left out as per initial question focus.
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
