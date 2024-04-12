@@ -1,5 +1,6 @@
-import styles from "./Story.css";
+import styles from "../../styles.module.css"
 import { useState } from "react";
+import "./Story.css"
 
 export default function App() {
   const [prompt, setPrompt] = useState("");
@@ -13,13 +14,16 @@ export default function App() {
 
   const generateQuery = async () => {
     try {
-      const response = await fetch("http://localhost:3002/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ topic: prompt }),
-      });
+      const response = await fetch(
+        "http://localhost:3002/v1/completions",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ topic: prompt }),
+        }
+      );
 
       if (!response.ok) {
         return `Error: ${response.status}`;
@@ -33,15 +37,16 @@ export default function App() {
   };
 
     return (
-      <main className={styles.readingMain}>
-        <h3 className={styles.centerText}>Reading/ Conversation Practice</h3>
-        <div className={styles.readingText}>
+      <main className={styles.main}>
+        <div>
+        <h3>Reading/ Conversation Practice</h3>
+
           <p>
             Reading out loud from a paragraph or text can help with
             articulation, breath control, and pacing.
           </p>
           <ul>
-            <li>Selection: Choose a paragraph from a book or article.</li>
+            <li>Selection: Choose a topic of interest.</li>
             <li>
               Read Aloud: Read the paragraph out loud at a comfortable pace.
             </li>
@@ -60,7 +65,7 @@ export default function App() {
             fluently in real-life situations, by practicing with complex
             sentences and different types of words.
           </p>
-        </div>
+        </div>   
         <form onSubmit={onSubmit}>
           <input
             type="text"
@@ -71,8 +76,8 @@ export default function App() {
           />
           <input type="submit" value="Generate Story" />
         </form>
-        <div className={styles.readingContainer}>
-          <p className={styles.centerText}>{response}</p>
+        <div className={styles.container}>
+          <p className={styles.container}>{response}</p>
         </div>
       </main>
     );

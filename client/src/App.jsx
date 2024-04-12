@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import Countdown from "./CountDown";
-import FunctionalPhrases from "./FunctionalPhrases";
-import Story from "./Story";
-import Header from "./Header";
+import Countdown from "./Components/Countdown/CountDown"
+import FunctionalPhrases from "./Components/FunctionalPhrases/FunctionalPhrases";
+import Story from "./Components/Story/Story";
+import Header from "./Components/Header/Header"
 import styles from "./styles.module.css";
-import "./Header.css";
 import intro from './assets/intro.png'
-import Landing from "./Landing"
+import Landing from "./Components/Landing/Landing"
 
 export default function App() {
   const [selectedExercise, setSelectedExercise] = useState("");

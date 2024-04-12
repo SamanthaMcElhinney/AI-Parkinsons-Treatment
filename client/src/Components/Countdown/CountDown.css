@@ -1,8 +1,11 @@
+
+
 .center-container {
-  display: flex;
+  border: none;
+  cursor: pointer;
+  display:flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .circle-animation {
@@ -19,12 +22,14 @@
 }
 
 .directions {
-  padding: 15px;
-  margin-top: 20px;
-  /* border: 1px solid #ccc; */
+  /* padding: 15px; */
+  /* margin-top: 20px; */
+  /* border: 1px solid red; */
   border-radius: 5px;
   font-size: 16px;
   line-height: 1.5;
+  /* margin:20px; */
+  /* padding:20px; */
 }
 
 .directions h3 {

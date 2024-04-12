@@ -1,4 +1,4 @@
-.readingMain {
+/* .readingMain {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,4 +31,9 @@ input[type="submit"] {
   white-space: pre-wrap; 
   word-wrap: break-word; 
   text-align: center; 
+} */
+
+.title-reading{
+  display:flex;
+  align-content: flex-start;
 }

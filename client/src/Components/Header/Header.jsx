@@ -1,5 +1,5 @@
 import React from "react";
-import speaking from "./assets/speaking.png";
+import speaking from "../../assets/speaking.png"
 import "./Header.css";
 
 function Header({ selectedExercise, setSelectedExercise }) {

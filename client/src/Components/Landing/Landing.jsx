@@ -1,13 +1,15 @@
 import React from "react";
 import "./Landing.css";
-import phone from "./assets/phone.png"
-import clarity from "./assets/clarity.png"
-import peeps from "./assets/peeps.png"
-import person from "./assets/doctor.png"
+import phone from "../../assets/phone.png";
+import clarity from "../../assets/clarity.png"
+import peeps from "../../assets/peeps.png"
+import person from "../../assets/doctor.png"
+import AudioMeter from "../Audio/AudioMeter"
 
 const Landing = () => {
   return (
     <div className="landing-container">
+      <AudioMeter/>
       <div className="top-content">
         <div className="content-right">
           <div className="image-container">

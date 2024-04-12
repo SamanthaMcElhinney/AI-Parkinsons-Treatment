@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import "./CountDown.css";
+import styles from "../../styles.module.css"
 
 export default function Countdown() {
   const [countdown, setCountdown] = useState(10);
@@ -41,18 +42,40 @@ export default function Countdown() {
   const strokeDashoffset = `calc(628 * ${countdown / 10})`;
 
   return (
-    <div className="center-container">
-       <div className="directions">
+    <div className={styles.main}>
+      <div className="directions">
         <h3>Vocal Exercises like "/a/":</h3>
-        <p>Vocal exercises aim to strengthen the vocal cords, improve voice projection, and enhance articulation. One basic exercise is the sustained "/a/" phonation:</p>
+        <p>
+          Vocal exercises aim to strengthen the vocal cords, improve voice
+          projection, and enhance articulation. One basic exercise is the
+          sustained "/a/" phonation:
+        </p>
         <ul>
-          <li><strong>Posture:</strong> Sit or stand up straight.</li>
-          <li><strong>Breath:</strong> Take a deep breath in.</li>
-          <li><strong>Phonation:</strong> As you exhale, make a long, steady "/a/" sound.</li>
-          <li><strong>Duration:</strong> Try to hold the sound as steady as possible for as long as you can.</li>
-          <li><strong>Volume:</strong> Aim for a moderate volume, not too soft but not shouting.</li>
+          <li>
+            <strong>Posture:</strong> Sit or stand up straight.
+          </li>
+          <li>
+            <strong>Breath:</strong> Take a deep breath in.
+          </li>
+          <li>
+            <strong>Phonation:</strong> As you exhale, make a long, steady "/a/"
+            sound.
+          </li>
+          <li>
+            <strong>Duration:</strong> Try to hold the sound as steady as
+            possible for as long as you can.
+          </li>
+          <li>
+            <strong>Volume:</strong> Aim for a moderate volume, not too soft but
+            not shouting.
+          </li>
         </ul>
-        <p><strong>Goal:</strong> To increase the duration you can hold the sound, improve the steadiness of the sound, and increase volume over time. This exercise helps to improve vocal cord closure and can enhance voice quality.</p>
+        <p>
+          <strong>Goal:</strong> To increase the duration you can hold the
+          sound, improve the steadiness of the sound, and increase volume over
+          time. This exercise helps to improve vocal cord closure and can
+          enhance voice quality.
+        </p>
       </div>
       <h2>Say Ah Countdown: {countdown}</h2>
       <button onClick={toggleTimer}>
@@ -60,14 +83,20 @@ export default function Countdown() {
       </button>
       <svg width="220" height="220">
         <defs>
-          <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <linearGradient
+            id="complementaryGradient"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="0%"
+          >
             <stop
               offset="0%"
-              style={{ stopColor: "#6200EA", stopOpacity: 1 }}
+              style={{ stopColor: "#e53935", stopOpacity: 1 }} // Magenta
             />
             <stop
               offset="100%"
-              style={{ stopColor: "#B3AFFF", stopOpacity: 1 }}
+              style={{ stopColor: "#8e24aa", stopOpacity: 1 }} // Purple
             />
           </linearGradient>
         </defs>
@@ -83,7 +112,7 @@ export default function Countdown() {
           cx="110"
           cy="110"
           r="100"
-          stroke="url(#purpleGradient)"
+          stroke="url(#complementaryGradient)"
           strokeWidth="10"
           fill="none"
           strokeDasharray={strokeDasharray}
