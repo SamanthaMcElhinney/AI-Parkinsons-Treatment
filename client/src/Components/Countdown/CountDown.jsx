@@ -57,8 +57,10 @@ export default function Countdown() {
           <div className="exercise-content">
             <p className="exercise-content-top">
               Vocal exercises strengthen the vocal cords, improve voice
-              projection, and enhance articulation. </p>
-            <p className="vocal-title">Sustained Phonation or<span className="vocal-a"> Ah</span>
+              projection, and enhance articulation.{" "}
+            </p>
+            <p className="vocal-title">
+              Sustained Phonation or<span className="vocal-a"> Ah</span>
             </p>
             <ul>
               <li>
@@ -101,11 +103,11 @@ export default function Countdown() {
               >
                 <stop
                   offset="0%"
-                  style={{ stopColor: "#cd82c0", stopOpacity: 1 }}
+                  style={{ stopColor: "#00DA8C", stopOpacity: 1 }}
                 />
                 <stop
                   offset="100%"
-                  style={{ stopColor: "#8e24aa", stopOpacity: 1 }}
+                  style={{ stopColor: "#daff7d", stopOpacity: 1 }}
                 />
               </linearGradient>
             </defs>

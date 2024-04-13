@@ -3,6 +3,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import Button from "@mui/material/Button";
+import CircularProgress from "@mui/material/CircularProgress";
 import "./FunctionalPhrases.css";
 
 const API_ENDPOINT = "http://localhost:3002/v1/chat/completions";
@@ -10,15 +11,22 @@ const API_ENDPOINT = "http://localhost:3002/v1/chat/completions";
 export default function FunctionalPhrases() {
   const [topic, setTopic] = useState("");
   const [phrases, setPhrases] = useState([]);
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    setError("")
+    setLoading(true)
     try {
       const fetchedPhrases = await fetchPhrases(topic);
       setPhrases(fetchedPhrases);
     } catch (error) {
       console.error("Fetching phrases failed:", error);
-      setPhrases(["Error occurred while fetching phrases."]);
+      setError("Failed to generate phrases. Please try again")
+    } finally {
+      setLoading(false)
+      setTopic("")
     }
   };
 
@@ -52,11 +60,17 @@ export default function FunctionalPhrases() {
           <h3 className="phrase-results-title">
             <span className="phrase-title-bold">YOUR</span> Phrases:
           </h3>
-          <ul className="phrase-results-AI">
-            {phrases.map((phrase, index) => (
-              <li key={index}>{phrase}</li>
-            ))}
-          </ul>
+          {loading ? (
+            <CircularProgress sx={{ color: "#6b4f54" }} />
+          ) : error ? (
+            <p className="error-text">{error}</p>
+          ) : (
+            <ul className="phrase-results-AI">
+              {phrases.map((phrase, index) => (
+                <li key={index}>{phrase}</li>
+              ))}
+            </ul>
+          )}
         </section>
         <div className="phrase-content-left">
           <h3 className="phrase-goal-container">
@@ -100,6 +114,13 @@ export default function FunctionalPhrases() {
                   </InputAdornment>
                 ),
               }}
+              sx={{
+                "& .MuiOutlinedInput-root": {
+                  "&.Mui-focused fieldset": {
+                    borderColor: " #6b4f54;",
+                  },
+                },
+              }}
             />
             <Button
               variant="contained"
@@ -107,11 +128,11 @@ export default function FunctionalPhrases() {
               sx={{
                 mt: 2,
                 width: 300,
-                backgroundColor: "#dafe7d;", 
-                color: "black", 
+                backgroundColor: "#dafe7d;",
+                color: "black",
                 "&:hover": {
-                  backgroundColor: "#5a3a36", // Darker shade for hover state
-                  color:"white"
+                  backgroundColor: "#5a3a36",
+                  color: "white",
                 },
               }}
             >

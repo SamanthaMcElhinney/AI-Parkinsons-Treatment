@@ -85,19 +85,6 @@ form {
     flex-wrap: wrap;
 }
 
-form input[type="text"], form input[type="submit"] {
-    padding: 12px 16px;
-    margin-bottom: 24px;
-    border-radius: 4px;
-    width: 40%; 
-    box-sizing: border-box;
-}
-
-.form-submit {
-    background-color: #daff7d;
-    border: none;
-    cursor: pointer;
-}
 
 .phrase-goal-bold {
     text-shadow: 2px 2px 2px #6b4f54;
