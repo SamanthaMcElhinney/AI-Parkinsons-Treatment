@@ -1,6 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
+
+.vocal-container {
+  display:flex;
+  flex-direction: column;
+  width:80%;
+  justify-content: center;
+  align-items: center;
+  font-family: "Lato", sans-serif;
+}
+
+.exercise-title-container{
+  flex-direction: column;
+}
+
+.exercise-title {
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 4rem;
+}
+
+.vocal-title{
+  font-size: 2rem;
+}
+.vocal-a {
+  font-size: 3rem;
+  color: #6b4f54;
+}
+.italic-color {
+  color: #6b4f54;
+  font-style: italic;
+}
+
+.exercise-content-top {
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+}
+
+.vocal-container-center {
+  display:flex;
+  flex-direction: row;
+}
+.vocal-container-left{
+  width:60%;
+  padding:2rem; 
+}
+
+.vocal-container-right{
+  width:40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-title{
+  color:pink;
+}
 
 .circle-animation {
   animation: rotate 10s linear infinite;
+}
+
+button {
+  margin:10px;
+  width:10rem;
+  background-color: #daff7d;
 }
 
 @keyframes rotate {
@@ -11,4 +76,5 @@
     stroke-dashoffset: 0;
   }
 }
+
 

@@ -3,21 +3,32 @@
 
 .landing-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; 
     padding: 1rem;
     font-family: 'Lato', sans-serif;
 }
 
-.landing-left {
-    width: 100%;
+.landing-left, .landing-right {
+    width: 100%;  
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+.landing-right {
+    display:flex;
 }
 
 .image-container {
     display: flex;
     justify-content: center;
-    align-items: center;position: relative;
+    align-items: center;
+}
+
+.doctor {
+    width: 56%; 
+    border-top-left-radius: 60%; 
+    border-top-right-radius: 60%; 
 }
 
 .landing-title {
@@ -25,7 +36,12 @@
     font-weight: 100;
     font-style: normal;
     font-size: 4rem;
-    font-weight: thin;
+}
+
+.landing-speech-title {
+    font-weight: 100;
+    font-size: 3rem; 
+    text-shadow: 1px 1px 1px #6b4f54;
 }
 
 .italic {
@@ -35,12 +51,6 @@
 .landing-info {
     font-weight: 100;
     padding-right: 4rem;
-}
-
-.landing-left, .landing-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .landing-right {
@@ -53,56 +63,32 @@
 
 .landing-button{
     background-color: #dafe7d;
-    padding:1rem;
-    width:15rem;
-    border-radius: 1rem;;
+    padding: 1rem;
+    width: 15rem;
+    border-radius: 1rem;
 }
 
-.doctor {
-    width: 56%; 
-    border-top-left-radius: 60%; 
-    border-top-right-radius: 60%; 
-}
-
-
-/* Media Queries for Responsiveness */
+/* Media Queries*/
 @media (max-width: 768px) {
     .landing-container {
-        display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .landing-left, .landing-right {
-        width: 100%;  
-        display: flex;
-        justify-content: center;  
-        align-items: center; 
-        text-align: center; 
     }
 
     .landing-title {
-        font-size: 3rem;  
+        font-size: 3rem;
     }
 
     .landing-info {
-        padding-right: 0;  
+        padding-right: 0;
         font-size: 0.75rem;
     }
 
     .doctor {
-        width: 100%; 
-        height:20rem;
-        border-top-left-radius: 60%; 
-        border-top-right-radius: 60%; 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        width: 100%;
+        height: 20rem; 
     }
 
     .landing-button {
         width: 50%; 
-        padding: 1rem;
     }
 }

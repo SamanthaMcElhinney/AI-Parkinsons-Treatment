@@ -14,6 +14,7 @@ const Landing = () => {
         </div>
       </div>
       <div className="landing-right">
+        <h1 className="landing-speech-title"> Parkinson's Speech Treatment</h1>
         <h2 className="landing-title">
           Your path to <span className="italic">better{" "}</span>
             <span className="title-color">communication!</span>

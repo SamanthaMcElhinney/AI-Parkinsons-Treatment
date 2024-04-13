@@ -46,47 +46,50 @@ export default function Countdown() {
   const strokeDashoffset = `calc(628 * ${countdown / INITIAL_COUNTDOWN})`;
 
   return (
-    <main className={styles.main}>
-      <h1>Vocal Exercises:</h1>
-      <div className={styles.container}>
-        <div>
-          <p>
-            Vocal exercises aim to strengthen the vocal cords, improve voice
-            projection, and enhance articulation. One basic exercise is the
-            sustained "/a/" phonation:
-          </p>
-          <ul>
-            <li>
-              <strong>Posture:</strong> Sit or stand up straight.
-            </li>
-            <li>
-              <strong>Breath:</strong> Take a deep breath in.
-            </li>
-            <li>
-              <strong>Phonation:</strong> As you exhale, make a long, steady
-              "/a/" sound.
-            </li>
-            <li>
-              <strong>Duration:</strong> Try to hold the sound as steady as
-              possible for as long as you can.
-            </li>
-            <li>
-              <strong>Volume:</strong> Aim for a moderate volume, not too soft
-              but not shouting.
-            </li>
-          </ul>
-          <p>
-            <strong>Goal:</strong> To increase the duration you can hold the
-            sound, improve the steadiness of the sound, and increase volume over
-            time. This exercise helps to improve vocal cord closure and can
-            enhance voice quality.
-          </p>
-        </div>
-        <div className={styles.container}>
-          <h2>Say Ah Countdown: {countdown}</h2>
-          <button onClick={toggleTimer} className={styles.countdownButton}>
-            {isRunning ? "Pause" : countdown === 0 ? "Restart" : "Start"}
-          </button>
+    <main className="vocal-container">
+      <section className="exercise-title-container">
+        <h1 className="exercise-title">
+          Help your<span className="italic-color">future</span> self now!
+        </h1>
+      </section>
+      <section className="vocal-container-center">
+        <section className="vocal-container-left">
+          <div className="exercise-content">
+            <p className="exercise-content-top">
+              Vocal exercises strengthen the vocal cords, improve voice
+              projection, and enhance articulation. </p>
+            <p className="vocal-title">Sustained Phonation or<span className="vocal-a"> Ah</span>
+            </p>
+            <ul>
+              <li>
+                <strong>Posture:</strong> Sit or stand up straight.
+              </li>
+              <li>
+                <strong>Breath:</strong> Take a deep breath in.
+              </li>
+              <li>
+                <strong>Phonation:</strong> As you exhale, make a long, steady
+                "/a/" sound.
+              </li>
+              <li>
+                <strong>Duration:</strong> Try to hold the sound as steady as
+                possible for as long as you can.
+              </li>
+              <li>
+                <strong>Volume:</strong> Aim for a moderate volume, not too soft
+                but not shouting.
+              </li>
+            </ul>
+            <p>
+              <strong>Goal:</strong> To increase the duration you can hold the
+              sound, improve the steadiness of the sound, and increase volume
+              over time. This exercise helps to improve vocal cord closure and
+              can enhance voice quality.
+            </p>
+          </div>
+        </section>
+        <div className="vocal-container-right">
+          <h2 className="">Countdown: {countdown}</h2>
           <svg width="220" height="220">
             <defs>
               <linearGradient
@@ -125,8 +128,11 @@ export default function Countdown() {
               strokeDashoffset={strokeDashoffset}
             />
           </svg>
+          <button onClick={toggleTimer} className={styles.countdownButton}>
+            {isRunning ? "Pause" : countdown === 0 ? "Restart" : "Start"}
+          </button>
         </div>
-      </div>
+      </section>
     </main>
   );
 }
