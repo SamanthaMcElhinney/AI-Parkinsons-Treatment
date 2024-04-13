@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Route, Routes } from "react-router-dom";
 import Countdown from "./Components/Countdown/Countdown";
 import FunctionalPhrases from "./Components/FunctionalPhrases/FunctionalPhrases";
 import Story from "./Components/Story/Story";
 import Header from "./Components/Header/Header";
 import Landing from "./Components/Landing/Landing";
 import styles from "./styles.module.css";
+import "./App.css"
 
 const App = () => {
   const [selectedExercise, setSelectedExercise] = useState("");

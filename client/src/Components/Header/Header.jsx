@@ -6,47 +6,49 @@ import "./Header.css";
 function Header({ selectedExercise, setSelectedExercise }) {
   const navigate = useNavigate();
 
-  const handleExerciseChange = (e) => {
-    setSelectedExercise(e.target.value);
-    navigate(`/${e.target.value}`);
+  const handleExerciseChange = (exerciseType) => {
+    setSelectedExercise(exerciseType);
+    navigate(`/${exerciseType}`);
   };
 
   return (
-    <section className="header">
-      <section className="header-top">
-        <section className="header-top__logo">
-          <Link
-            to="/"
-            className="header-logo"
-            onClick={() => setSelectedExercise("")}
-          >
-            Parkinson's
-          </Link>
-          <img src={speaking} className="head" alt="speaking icon" />
-        </section>
-      </section>
-      <section className="header-bottom">
-        <section className="header-bottom__phone">
-          <label htmlFor="exercise-dropdown">Daily Exercises:</label>
-          <select
-            id="exercise-dropdown"
-            onChange={handleExerciseChange}
-            value={selectedExercise}
-            className="dropdown"
-          >
-            <option value="" disabled>
-              Select type
-            </option>
-            <option value="vocal">Vocal Exercises</option>
-            <option value="functional">Functional Phrases</option>
-            <option value="reading">Reading Paragraphs</option>
-          </select>
-        </section>
-        <section className="header-bottom__email">
-          https://www.parkinson.org/
-        </section>
-      </section>
-    </section>
+    <header className="header">
+      <Link to="/" className="logo" onClick={() => setSelectedExercise("")}>
+        AmpliVox PD
+        <img src={speaking} alt="speaking icon" />
+      </Link>
+      <nav className="header-choices">
+        <Link
+          to="/vocal"
+          onClick={() => handleExerciseChange("vocal")}
+          className="exercise-link"
+        >
+          Vocal Exercises
+        </Link>
+        <Link
+          to="/functional"
+          onClick={() => handleExerciseChange("functional")}
+          className="exercise-link"
+        >
+          Functional Phrases
+        </Link>
+        <Link
+          to="/reading"
+          onClick={() => handleExerciseChange("reading")}
+          className="exercise-link"
+        >
+          Reading Paragraphs
+        </Link>
+        <a
+          href="https://www.parkinson.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="exercise-link"
+        >
+          Learn More
+        </a>
+      </nav>
+    </header>
   );
 }
 

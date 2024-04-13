@@ -3,29 +3,31 @@ import "./Landing.css";
 import phone from "../../assets/phone.png";
 import clarity from "../../assets/clarity.png";
 import peeps from "../../assets/peeps.png";
-import person from "../../assets/doctor.png";
+import person from "../../assets/Doctor.jpg";
 
 const Landing = () => {
   return (
-    <div className="landing-container">
-      <div className="top-content">
-        <div className="content-right">
-          <div className="image-container">
-            <img className="doctor" src={person} alt="Doctor" />
-          </div>
+    <section className="landing-container">
+      <div className="landing-left">
+        <div className="image-container">
+          <img className="doctor" src={person} alt="Doctor" />
         </div>
-        <div className="content-left">
-          <h2 className="title">
-            Your path to better{" "}
+      </div>
+      <div className="landing-right">
+        <h2 className="landing-title">
+          Your path to <span className="italic">better{" "}</span>
             <span className="title-color">communication!</span>
-          </h2>
-          <p className="landing-info">
-            {" "}
-            Research shows prophylactic exercises can improve vocal loudness,
-            articulation, and enhance speech intelligibility resulting in more
-            effective communication and a better quality of life!
-          </p>
-          <div className="bottom-container">
+        </h2>
+        <p className="landing-info">
+          {" "}
+          Research shows prophylactic exercises can improve vocal loudness,
+          articulation, and enhance speech intelligibility resulting in more
+          effective communication and a better quality of life!
+        </p>
+        <button className="landing-button">
+            Get Started
+        </button>
+          {/* <div className="bottom-container">
             <div className="icon-container">
               <img className="icon" src={phone} alt="Phone" />
               <h3 className="icon-label">Be understood</h3>
@@ -38,10 +40,9 @@ const Landing = () => {
               <img className="icon" src={peeps} alt="People" />
               <h3 className="icon-label">Move Forward</h3>
             </div>
-          </div>
+          </div> */}
         </div>
-      </div>
-    </div>
+    </section>
   );
 };
 
