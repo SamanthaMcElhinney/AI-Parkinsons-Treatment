@@ -40,7 +40,12 @@ Key Features
 ## Wins
 - AI Integration: Successfully integrated ChatGPT for a personalized treatment approach, enhancing user engagement and treatment effectiveness.
 - Full-Stack Development: This marks my first full-stack application with successful implemention.
-- Rapid Development: Accomplished the Minimum Viable Product (MVP) within a 4 day timeline. 
+- Rapid Development: Accomplished the Minimum Viable Product (MVP) within a 4 day timeline.
+- 100% Accessibility Rating via Lighthouse
+- Fully responsive for mobile view
+![AI-Accessibility](https://github.com/SamanthaMcElhinney/AI-Parkinsons-Treatment/assets/115356592/1e7677b0-4d00-4d02-bb30-635bac4126dd)
+
+![Screenshot 2024-04-14 at 3 17 56 PM](https://github.com/SamanthaMcElhinney/AI-Parkinsons-Treatment/assets/115356592/5ed68497-df1c-4d39-b41c-4a4599a1a839)
 
 ## Challenges & Improvements
 - Specific challenge I faced was handling a TypeError caused by incorrect data types being passed to the OpenAI API. This issue was resolved by adding checks to ensure that all incoming data to the /v1/completions and /v1/chat/completions endpoints are strings, as expected by the API specifications. This preventative measure helps avoid server crashes and ensures smoother operations. Additionally, to enhance robustness, I introduced more detailed error messages to aid in debugging and improve the ability to understand what went wrong. Moving forward, implementing automated testing for edge cases and integrating more comprehensive logging could significantly improve reliability and ease of maintenance.
