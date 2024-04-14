@@ -46,11 +46,9 @@ export default function Countdown() {
 
   return (
     <main className="vocal-container">
-      <section className="exercise-title-container">
-        <h1 className="exercise-title">
-          Help your<span className="italic-color">future</span> self now!
-        </h1>
-      </section>
+      <h1 className="exercise-title">
+        Help your<span className="italic-color">future</span> self now!
+      </h1>
       <section className="vocal-container-center">
         <section className="vocal-container-left">
           <div className="exercise-content">

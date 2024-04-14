@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Countdown from "./Pages/Countdown/Countdown";
+import Countdown from "./Pages/Countdown/CountDown"
 import FunctionalPhrases from "./Pages/FunctionalPhrases/FunctionalPhrases";
 import Story from "./pages/Story/Story";
 import Header from "./Components/Header/Header";
@@ -23,12 +23,12 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="appContainer">
       <Header
         selectedExercise={selectedExercise}
         setSelectedExercise={setSelectedExercise}
       />
-      <main>
+      <main className="centeredMain">
         {selectedExercise ? getExerciseComponent() : <Landing />}
       </main>
     </div>

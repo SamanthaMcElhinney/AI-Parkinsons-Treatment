@@ -25,20 +25,6 @@ const Landing = () => {
         <button className="landing-button">
             Get Started
         </button>
-          {/* <div className="bottom-container">
-            <div className="icon-container">
-              <img className="icon" src={phone} alt="Phone" />
-              <h3 className="icon-label">Be understood</h3>
-            </div>
-            <div className="icon-container">
-              <img className="icon" src={clarity} alt="Clarity" />
-              <h3 className="icon-label">Get Clarity</h3>
-            </div>
-            <div className="icon-container">
-              <img className="icon" src={peeps} alt="People" />
-              <h3 className="icon-label">Move Forward</h3>
-            </div>
-          </div> */}
         </div>
     </section>
   );

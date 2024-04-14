@@ -37,7 +37,7 @@ function Header({ selectedExercise, setSelectedExercise }) {
           onClick={() => handleExerciseChange("reading")}
           className="exercise-link"
         >
-          Story 
+          Story
         </Link>
         <a
           href="https://www.parkinson.org/"

@@ -3,6 +3,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 
 const CustomTextField = ({ label, value, onChange }) => {
+  
   return (
     <TextField
       fullWidth
@@ -10,6 +11,7 @@ const CustomTextField = ({ label, value, onChange }) => {
       variant="outlined"
       value={value}
       onChange={onChange}
+      className="custom-text-field"
       InputProps={{
         startAdornment: (
           <InputAdornment position="start">
