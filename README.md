@@ -10,43 +10,40 @@
   - [Sources](#Sources)
 
 ## Project Summary
-This application was created as a speech language pathologist working with many patients with Parkinson's Disease to enhancing speech intelligibility in patients. Utilizing standardized treatment methods, the application addresses the limitations of existing materials, which are often outdated and non-personalized.
+This application was created as a speech language pathologist working with many patients with Parkinson's Disease to enhancing speech intelligibility in patients. Utilizing standardized treatment methods I wanted to create an application that could be used by both client's and SLP's. There are a lot of application for measuring dB and fluency, but none currently created that provided personalized treatment stimulus based on the client's interests. 
 
 Key Features
 - Vocal Exercise Page: Provides vocal exercises to improve voice projection and enhance articulation as well as breath support. Features a countdown timer as a visual aid for each exercise.
 - AI-Powered Functional Phrase Generator: Generates 10 personalized phrases designed to improve functional language skills critical in day-to-day conversations.
 - AI-Driven Story Generator: The AI-Driven Story Generator provides a unique approach to improving user fluency. Here's a brief overview of its process:
-    - Story Generation: Upon a user's input of a topic, the AI crafts a short story related to it.
-    - Database Storage: This story is then saved for future interactions, ensuring a continued personalized experience.
-    - User Retrieval: In later sessions, users can revisit and practice with their personalized stories.
-
-This application serves as a comprehensive tool for both clinicians and patients, offering a modern and effective approach to treating Parkinson's disease.
+  
 
 ## Technologies
 - React
 - Express
 - Node.js
+- Cypress
 - PostgreSQL
 
 ## Illustrations
-![Title](https://github.com/SamanthaMcElhinney/AI-Parkinsons-Treatment/assets/115356592/853488ae-e2f8-44ca-b108-712d6a5b28e0)
 
-![phrases](https://github.com/SamanthaMcElhinney/AI-Parkinsons-Treatment/assets/115356592/24363d19-27a2-4a1f-85d1-09fec04a6376)
+![AI-Landing](https://github.com/SamanthaMcElhinney/AI-Parkinsons-Treatment/assets/115356592/08aaef1d-ac03-4f3f-bcc6-6d31546ddfc2)
 
-![Story](https://github.com/SamanthaMcElhinney/AI-Parkinsons-Treatment/assets/115356592/80538943-46ce-4c37-90eb-2c02671f5328)
+![AI-Phrases](https://github.com/SamanthaMcElhinney/AI-Parkinsons-Treatment/assets/115356592/680d54f2-fab8-47cb-b3a2-a64fb542baa6)
 
-![Vocal-exercises](https://github.com/SamanthaMcElhinney/AI-Parkinsons-Treatment/assets/115356592/1a955aff-65ed-4a1e-af7f-e94e479e5c2f)
+![AI-Story](https://github.com/SamanthaMcElhinney/AI-Parkinsons-Treatment/assets/115356592/9fd36cd9-b6d0-48f8-973e-f214bf06f325)
+
 
 ## Deployed Page
-See an overview of the application here https://www.loom.com/share/6d58ee0cd8ed4a4988a83188ed8e64d6?sid=5a293123-7a1e-4a51-98b0-fab8239c5a58
+
 
 ## Wins
 - AI Integration: Successfully integrated ChatGPT for a personalized treatment approach, enhancing user engagement and treatment effectiveness.
-- Full-Stack Development: This marks my first full-stack application
-- Rapid Development: Accomplished the Minimum Viable Product (MVP) within an impressive 3-day timeline, proving the project's feasibility and impact.
+- Full-Stack Development: This marks my first full-stack application with successful implemention.
+- Rapid Development: Accomplished the Minimum Viable Product (MVP) within a 4 day timeline. 
 
 ## Challenges & Improvements
-- Adapting to backend data changes and updates posed a technical hurdle
+- Specific challenge I faced was handling a TypeError caused by incorrect data types being passed to the OpenAI API. This issue was resolved by adding checks to ensure that all incoming data to the /v1/completions and /v1/chat/completions endpoints are strings, as expected by the API specifications. This preventative measure helps avoid server crashes and ensures smoother operations. Additionally, to enhance robustness, I introduced more detailed error messages to aid in debugging and improve the ability to understand what went wrong. Moving forward, implementing automated testing for edge cases and integrating more comprehensive logging could significantly improve reliability and ease of maintenance.
 - Future improvements:
 Progress Visualization: Integrate a graph to visually display treatment progress over time.
 User Perspectives: Introduce separate views for clinicians and patients to tailor the user experience based on their specific needs.
