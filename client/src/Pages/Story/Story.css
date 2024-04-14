@@ -112,3 +112,7 @@ form {
 *, *:before, *:after {
     box-sizing: border-box;
 }
+
+.bold {
+  font-weight: bold;
+}

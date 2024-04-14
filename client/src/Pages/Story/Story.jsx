@@ -1,9 +1,7 @@
 import { useState } from "react";
-import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import InputAdornment from "@mui/material/InputAdornment";
-import SearchIcon from "@mui/icons-material/Search";
-import CircularProgress from "@mui/material/CircularProgress"; 
+import CircularProgress from "@mui/material/CircularProgress";
+import CustomTextField from "../../Components/CustomTextField";
 import "./Story.css";
 
 const API_URL = "http://localhost:3002/v1/completions";
@@ -11,22 +9,22 @@ const API_URL = "http://localhost:3002/v1/completions";
 export default function Story() {
   const [prompt, setPrompt] = useState("");
   const [story, setStory] = useState("");
-  const [isLoading, setIsLoading] = useState(false); 
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const onSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setError("");
-    setIsLoading(true); 
+    setIsLoading(true);
     try {
       const reply = await generateStory();
-      setStory(reply); 
+      setStory(reply);
     } catch (err) {
       setError("Failed to generate story. Please try again.");
       console.error(err);
     } finally {
-      setIsLoading(false); 
-      setPrompt("")
+      setIsLoading(false);
+      setPrompt("");
     }
   };
 
@@ -64,45 +62,36 @@ export default function Story() {
           </h3>
           <p>
             Reading out loud from a paragraph or text can help with
-            articulation, breath control, and pacing.
-            <br />
-            Here's how to get the most out of these reading exercises:
+            articulation, breath control, and pacing. Here's how to get the most
+            out of these reading exercises:
           </p>
           <ul>
             <li>
-              <strong>Selection:</strong> Choose a topic of interest.
+              <span className="bold">Selection:</span> Choose a topic of
+              interest.
             </li>
             <li>
-              <strong>Read Aloud:</strong> Read the paragraph out loud at a
-              comfortable pace.
+              <span className="bold">Read Aloud:</span> Read the paragraph out
+              loud at a comfortable pace.
             </li>
             <li>
-              <strong>Articulation:</strong> Focus on articulating each word
-              clearly.
+              <span className="bold">Articulation:</span> Focus on articulating
+              each word clearly.
             </li>
             <li>
-              <strong>Pacing:</strong> Maintain a steady pace, taking breaths as
-              necessary but not rushing.
+              <span className="bold">Pacing:</span> Maintain a steady pace,
+              taking breaths as necessary but not rushing.
             </li>
             <li>
-              <strong>Expression:</strong> Try to incorporate some inflection
-              and emotion, as you would in conversation.
+              <span className="bold">Expression:</span> Try to incorporate some
+              inflection and emotion, as you would in conversation.
             </li>
           </ul>
-          <form onSubmit={onSubmit}>
-            <TextField
-              fullWidth
+          <form onSubmit={handleSubmit}>
+            <CustomTextField
               label="Choose topic"
-              variant="outlined"
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-              }}
             />
             <Button
               variant="contained"
@@ -128,7 +117,7 @@ export default function Story() {
           </h3>
           {isLoading ? (
             <div className="story-results-ai">
-              <CircularProgress sx={{ color: "#6b4f54" }} />
+              <CircularProgress sx={{ color: "#00b67a" }} />
             </div>
           ) : (
             <div className="story-content-centered">

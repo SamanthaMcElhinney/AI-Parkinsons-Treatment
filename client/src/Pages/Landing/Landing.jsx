@@ -1,8 +1,5 @@
 import React from "react";
 import "./Landing.css";
-import phone from "../../assets/phone.png";
-import clarity from "../../assets/clarity.png";
-import peeps from "../../assets/peeps.png";
 import person from "../../assets/Doctor.jpg";
 
 const Landing = () => {

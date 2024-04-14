@@ -90,6 +90,10 @@ form {
     text-shadow: 2px 2px 2px #6b4f54;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 *, *:before, *:after {
     box-sizing: border-box;
 }

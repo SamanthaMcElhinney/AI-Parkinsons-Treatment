@@ -1,7 +1,5 @@
 import { useState } from "react";
-import SearchIcon from "@mui/icons-material/Search";
-import TextField from "@mui/material/TextField";
-import InputAdornment from "@mui/material/InputAdornment";
+import CustomTextField from "../../Components/CustomTextField";
 import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 import "./FunctionalPhrases.css";
@@ -11,22 +9,22 @@ const API_ENDPOINT = "http://localhost:3002/v1/chat/completions";
 export default function FunctionalPhrases() {
   const [topic, setTopic] = useState("");
   const [phrases, setPhrases] = useState([]);
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const onSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setError("")
-    setLoading(true)
+    setError("");
+    setLoading(true);
     try {
       const fetchedPhrases = await fetchPhrases(topic);
       setPhrases(fetchedPhrases);
     } catch (error) {
       console.error("Fetching phrases failed:", error);
-      setError("Failed to generate phrases. Please try again")
+      setError("Failed to generate phrases. Please try again");
     } finally {
-      setLoading(false)
-      setTopic("")
+      setLoading(false);
+      setTopic("");
     }
   };
 
@@ -61,7 +59,7 @@ export default function FunctionalPhrases() {
             <span className="phrase-title-bold">YOUR</span> Phrases:
           </h3>
           {loading ? (
-            <CircularProgress sx={{ color: "#6b4f54" }} />
+            <CircularProgress sx={{ color: "#00b67a" }} />
           ) : error ? (
             <p className="error-text">{error}</p>
           ) : (
@@ -84,43 +82,27 @@ export default function FunctionalPhrases() {
           </p>
           <ul>
             <li>
-              <strong>Topic:</strong> Choose a topic that you would normally
-              talk about in your daily life.
+              <span className="bold">Topic:</span> Choose a topic that you would
+              normally talk about in your daily life.
             </li>
             <li>
-              <strong>Speech:</strong> Try to say the generated phrases as
-              naturally as possible.
+              <span className="bold">Speech:</span> Try to say the generated
+              phrases as naturally as possible.
             </li>
             <li>
-              <strong>Repetition:</strong> The more you practice, the more
-              comfortable you will become.
+              <span className="bold">Repetition:</span> The more you practice,
+              the more comfortable you will become.
             </li>
             <li>
-              <strong>Application:</strong> Try using these phrases in your
-              daily conversations.
+              <span className="bold">Application:</span> Try using these phrases
+              in your daily conversations.
             </li>
           </ul>
-          <form onSubmit={onSubmit}>
-            <TextField
-              fullWidth
-              label="Choose your topic"
-              variant="outlined"
+          <form onSubmit={handleSubmit}>
+            <CustomTextField
+              label="Choose topic"
               value={topic}
               onChange={(e) => setTopic(e.target.value)}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-              }}
-              sx={{
-                "& .MuiOutlinedInput-root": {
-                  "&.Mui-focused fieldset": {
-                    borderColor: " #6b4f54;",
-                  },
-                },
-              }}
             />
             <Button
               variant="contained"

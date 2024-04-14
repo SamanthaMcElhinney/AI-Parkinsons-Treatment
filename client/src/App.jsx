@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import Countdown from "./Components/Countdown/Countdown";
-import FunctionalPhrases from "./Components/FunctionalPhrases/FunctionalPhrases";
-import Story from "./Components/Story/Story";
+import Countdown from "./Pages/Countdown/Countdown";
+import FunctionalPhrases from "./Pages/FunctionalPhrases/FunctionalPhrases";
+import Story from "./pages/Story/Story";
 import Header from "./Components/Header/Header";
-import Landing from "./Components/Landing/Landing";
-import styles from "./styles.module.css";
+import Landing from "./Pages/Landing/Landing";
 import "./App.css"
 
 const App = () => {
@@ -24,12 +23,12 @@ const App = () => {
   };
 
   return (
-    <div className={styles.appContainer}>
+    <div>
       <Header
         selectedExercise={selectedExercise}
         setSelectedExercise={setSelectedExercise}
       />
-      <main className={styles.centeredMain}>
+      <main>
         {selectedExercise ? getExerciseComponent() : <Landing />}
       </main>
     </div>

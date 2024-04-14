@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import "./CountDown.css";
-import styles from "../../styles.module.css";
 
 export default function Countdown() {
   const INITIAL_COUNTDOWN = 10;
@@ -130,7 +129,7 @@ export default function Countdown() {
               strokeDashoffset={strokeDashoffset}
             />
           </svg>
-          <button onClick={toggleTimer} className={styles.countdownButton}>
+          <button onClick={toggleTimer}>
             {isRunning ? "Pause" : countdown === 0 ? "Restart" : "Start"}
           </button>
         </div>
